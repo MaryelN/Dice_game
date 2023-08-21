@@ -30,12 +30,12 @@ h1 {
   font-size: 3rem;
 }
 
-.container {
+.container__players {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   text-align: center;
-  margin: 11rem auto;
+  margin: 11rem 11rem;
   padding: 2.5rem;
   background-color: var(--container-bg);
 }
@@ -45,9 +45,11 @@ h1 {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  margin-top: 15rem; 
 }
 
+.dice {
+  margin: 9rem;;
+}
 
 .player {
   margin-bottom: 2rem;
