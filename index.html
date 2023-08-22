@@ -2,20 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="author" content="Maryel Navarro">
+  <meta name="description" content="Dice Game with JavaScript">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/style.css">
+  <link rel="icon" type="dice/x-icon" href="/assets/images/favicon-16x16.png">
   <title>Dice Game</title>
+  <meta property="og:title" content="Dice Game" />
+  <meta property="og:type" content="games" />
 </head>
+
 <body>
-  <div class="container__title">
+
+  <div class="container__main">
     <h1>DICE GAME</h1>
     <button id="clear">NEW GAME</button>
     <div class="sub__container">
       <img src="/assets/images/dice-1.png" class="dice" id="dice"/>
-      <button class="roll">ROLL DICE</button>
+      <button id="roll">ROLL DICE</button>
       <button id="hold">HOLD</button>
     </div>
   </div>
