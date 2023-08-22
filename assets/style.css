@@ -18,45 +18,22 @@ body{
   font-family: 'Lato', sans-serif;
 }
 
-.container__main {
-  text-align: center;
-  position: absolute;
-  top: 2rem;
-  height: 10rem;
-  width: 100%;
-  
-}
-
 h1 {
   font-size: 3rem;
+  margin-top: 2rem;
 }
 
-.container__players {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  text-align: center;
-  margin: 11rem 11rem;
-  padding: 2.5rem;
+.container{
   background-color: var(--container-bg);
-}
-
-.sub__container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
+  margin-top: 2rem;
 }
 
 .dice {
-  margin: 9rem;;
+  margin: 5rem;;
 }
 
-.player {
-  margin-bottom: 2rem;
-  font-size: 2.2rem;
-  letter-spacing: 3px;
-  color: var(--main);
+#roll {
+  display: block;
 }
 
 .active {
@@ -68,14 +45,15 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
 }
-.current{
-  margin-top: 2rem;
+.current-container {
+  margin: 3rem auto;
   background-color: var(--main);
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 10px;
   font-size: 1.5rem;
   color: var(--secondary);
   letter-spacing: 3px;
+  width: 15rem;
 }
 
 
