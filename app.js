@@ -8,19 +8,18 @@ const btnHold = document.getElementById("hold");
 
 const btnClear = document.getElementById("clear");
 
-const currentPlayer1 = document.getElementById("current-1");
+// const currentPlayer1 = document.getElementById("current-1");
 
-const currentPlayer2 = document.getElementById("current-2");
+// const currentPlayer2 = document.getElementById("current-2");
 
-const player1 = document.getElementById("score-1");
-
-const player2 = document.getElementById("score-2");
 
 let activePlayer = 1;
 let currentScore = 0;
+let score = 0;
+
 
 btnRoll.addEventListener("click", function() {
-  //Change the active player  
+  //Set the active player  
     const activePlayerClass = document.getElementById(`current-${activePlayer}`);
     activePlayerClass.classList.add("active");
 
@@ -40,20 +39,47 @@ btnRoll.addEventListener("click", function() {
     document.getElementById(`current-${activePlayer}`).innerHTML = currentScore;
 
   } else {
-
     currentScore = 0;
     //set the current score to 0 on html
-    document.getElementById(`current-${activePlayer}`).innerHTML = currentScore;
+    document.getElementById(`current-${activePlayer}`).innerHTML = 0;
     activePlayerClass.classList.remove("active");
+    
     //change of player
-
     activePlayer = activePlayer === 1 ? 2 : 1;
     document.getElementById(`current-${activePlayer}`).classList.add("active");
     // activePlayer2.classList.add("active");
   }
-    
 });
 
 
+btnHold.addEventListener("click", function() {
+  
+  const activeScore = document.getElementById(`score-${activePlayer}`);
 
+  score = parseInt(activeScore.innerHTML); 
+  score += currentScore;
+  activeScore.innerHTML = score;
 
+  // change of player
+  const activePlayerClass = document.getElementById(`current-${activePlayer}`);
+  activePlayerClass.classList.remove("active");
+  //set the current score to 0 on html
+  currentScore = 0;
+  document.getElementById(`current-${activePlayer}`).innerHTML = 0;
+  activePlayer = activePlayer === 1 ? 2 : 1;
+  //set the current score to 0 on html
+  currentScore = 0;
+  document.getElementById(`current-${activePlayer}`).innerHTML = currentScore;
+  document.getElementById(`current-${activePlayer}`).classList.add("active");
+
+});
+
+btnClear.addEventListener("click", function() {
+  currentScore = 0;
+  score = 0;
+  document.getElementById("current-1").innerHTML = 0;
+  document.getElementById("current-2").innerHTML = 0;
+  document.getElementById("score-1").innerHTML = 0;
+  document.getElementById("score-2").innerHTML = 0;
+  document.getElementById(`current-${activePlayer}`).classList.remove("active");
+})
