@@ -8,10 +8,6 @@ const btnHold = document.getElementById("hold");
 
 const btnClear = document.getElementById("clear");
 
-// const currentPlayer1 = document.getElementById("current-1");
-
-// const currentPlayer2 = document.getElementById("current-2");
-
 
 let activePlayer = 1;
 let currentScore = 0;
@@ -60,6 +56,12 @@ btnHold.addEventListener("click", function() {
   score += currentScore;
   activeScore.innerHTML = score;
 
+  if (activeScore.innerHTML >= 50) {
+    //Winner alert and reset
+    alert(`Player ${activePlayer} wins!`);
+    btnClear.click();
+  } else {
+
   // change of player
   const activePlayerClass = document.getElementById(`current-${activePlayer}`);
   activePlayerClass.classList.remove("active");
@@ -71,7 +73,7 @@ btnHold.addEventListener("click", function() {
   currentScore = 0;
   document.getElementById(`current-${activePlayer}`).innerHTML = currentScore;
   document.getElementById(`current-${activePlayer}`).classList.add("active");
-
+  }
 });
 
 btnClear.addEventListener("click", function() {

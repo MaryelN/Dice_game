@@ -11,7 +11,7 @@ Le jeu comprend 2 joueurs sur un seul et même écran. Chaque joueur possède un
 - Cliquer sur l'option “Hold”, qui permet d’envoyer les points du ROUND vers le GLOBAL. Ce sera alors le tour de l’autre joueur.
 - Lancer le dé. S’il obtient un 1, son score ROUND est perdu et c’est la fin de son tour.
 
-Le premier joueur qui atteint les 100 points sur le score global gagne le jeu.
+Le premier joueur qui atteint les 50 points sur le score global gagne le jeu.
 
 ### Langages Utilisés
 
