@@ -24,8 +24,14 @@ h1 {
 }
 
 .container{
+  position: relative;
   background-color: var(--container-bg);
   margin-top: 2rem;
+}
+
+#info:hover {
+  opacity: 0.5;
+
 }
 
 .dice {
@@ -45,6 +51,7 @@ h1 {
   font-size: 2rem;
   font-weight: bold;
 }
+
 .current-container {
   margin: 3rem auto;
   background-color: var(--main);
@@ -56,6 +63,23 @@ h1 {
   width: 15rem;
 }
 
+.rules {
+  position: absolute;
+  top: 2rem;
+  left: 30%;
+  width: 35vw;
+  margin: 5rem auto;
+  background-color: var(--active);
+  color: var(--secondary);
+  text-align: center;
+  font-size: 1.2rem;
+  display: none;
+}
+
+h3 {
+  margin: 1rem;
+  color: var(--main);
+}
 
 button {
   width: 10rem;
@@ -78,4 +102,11 @@ button:hover {
 
 button:active {
   transform: scale(0.9);
+}
+
+#close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 3rem;
 }

@@ -8,6 +8,21 @@ const btnHold = document.getElementById("hold");
 
 const btnClear = document.getElementById("clear");
 
+const btnInfo = document.getElementById("info");
+
+const btnClose = document.getElementById("close");
+
+
+//Information display
+btnInfo.addEventListener("click", function() {
+
+  document.querySelector(".rules").style.display = "block";
+
+  btnClose.addEventListener("click", function() {
+
+    document.querySelector(".rules").style.display = "none";
+})
+});
 
 let activePlayer = 1;
 let currentScore = 0;
