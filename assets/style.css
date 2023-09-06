@@ -66,8 +66,8 @@ h1 {
 .rules {
   position: absolute;
   top: 2rem;
-  left: 30%;
-  width: 35vw;
+  left: 28%;
+  width: 40vw;
   margin: 5rem auto;
   background-color: var(--active);
   color: var(--secondary);
@@ -109,4 +109,23 @@ button:active {
   top: 0;
   right: 0;
   width: 3rem;
+}
+
+@media screen and (max-width: 1000px) {
+  .rules {
+    width: 80vw;
+    left: 10%;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 766px) {
+  .container {
+    height: 890px;
+  }
+  .player2{
+    position: absolute;
+    top: 60%;
+    right: 25%;
+
+  }
 }
