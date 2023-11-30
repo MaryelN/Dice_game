@@ -38,7 +38,7 @@ btnRoll.addEventListener("click", function() {
   const randomNum = Math.floor(Math.random() * 6 ) + 1;
   
   //Change the dice image
-  dice.src = `assets/images/dice-${randomNum}.png`;
+  dice.src = `./assets/images/dice-${randomNum}.png`;
   
   console.log(randomNum);
 
