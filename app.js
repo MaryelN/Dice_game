@@ -39,8 +39,6 @@ btnRoll.addEventListener("click", function() {
   
   //Change the dice image
   dice.src = `./assets/images/dice-${randomNum}.png`;
-  
-  console.log(randomNum);
 
   //Add and display the random number if !== 1
   if (randomNum !== 1) {
