@@ -1,0 +1,22 @@
+{
+  "name": "dice",
+  "version": "1.0.0",
+  "description": "## Dynamiser vos sites web avec Javascript",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.21.0",
+    "mongodb": "^6.9.0",
+    "mongoose": "^8.6.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.5"
+  }
+}
