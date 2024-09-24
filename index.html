@@ -1,65 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="author" content="Maryel Navarro">
-  <meta name="description" content="Dice Game with JavaScript">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-  <link rel="stylesheet" href="assets/style.css">
-  <link rel="icon" type="dice/x-icon" href="assets/images/favicon-16x16.png">
-  <title>Dice Game</title>
-  <meta property="og:title" content="Dice Game" />
-  <meta property="og:type" content="games" />
-</head>
-<body>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col text-center">
-      <h1>DICE GAME</h1>
-      <button id="clear">NEW GAME</button>
-      <img src="assets/info-icon.png" alt="information icon" id="info" >
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="author" content="Maryel Navarro" />
+    <meta name="description" content="Dice Game with JavaScript" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="assets/style.css" />
+    <link
+      rel="icon"
+      type="dice/x-icon"
+      href="assets/images/favicon-16x16.png"
+    />
+    <title>Dice Game</title>
+    <meta property="og:title" content="Dice Game" />
+    <meta property="og:type" content="games" />
+  </head>
+  <body>
+    <div class="modal" id="winnersModal" tabindex="-1">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Latest Winners</h5>
+            <button
+              type="button"
+              class="btn-close"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            ></button>
+          </div>
+          <div class="modal-body" id="winnersList"></div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="row">
-      <div class="col-xs-12 col-md text-center player1">
-        <h2>PLAYER 1</h2>
-        <p class="number" id="score-1">0</p>
-        <div class="current-container">
-          <p>CURRENT</p>
-          <p id="current-1">0</p>
+
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">
+          <h1>DICE GAME</h1>
+          <button id="clear">NEW GAME</button>
+          <img src="assets/info-icon.png" alt="information icon" id="info" />
         </div>
       </div>
-      <div class="col-xs-12 col-md text-center">
-        <img src="assets/images/dice-1.png" class="dice" id="dice"/>
-        <button id="roll">ROLL DICE</button>
-        <button id="hold">HOLD</button>
-      </div>
-      <div class="col-xs-4 col-md text-center player2">
-        <h2>PLAYER 2</h2>
-        <p class="number" id="score-2">0</p>
-        <div class="current-container">
-          <p>CURRENT</p>
-          <p id="current-2">0</p>
+      <div class="row">
+        <div class="col-xs-12 col-md text-center player1">
+          <h2>PLAYER 1</h2>
+          <p class="number" id="score-1">0</p>
+          <div class="current-container">
+            <p>CURRENT</p>
+            <p id="current-1">0</p>
+          </div>
         </div>
-      </div>
-      <div class="rules" class="col">
+        <div class="col-xs-12 col-md text-center">
+          <img src="assets/images/dice-1.png" class="dice" id="dice" />
+          <button id="roll">ROLL DICE</button>
+          <button id="hold">HOLD</button>
+        </div>
+        <div class="col-xs-4 col-md text-center player2">
+          <h2>PLAYER 2</h2>
+          <p class="number" id="score-2">0</p>
+          <div class="current-container">
+            <p>CURRENT</p>
+            <p id="current-2">0</p>
+          </div>
+        </div>
+        <div class="rules" class="col">
           <button id="close">X</button>
           <h3>RULES</h3>
-          <p>The game has <strong>2 Players</strong> on the same screen</p> 
+          <p>The game has <strong>2 Players</strong> on the same screen</p>
           <p>Each player have a (ROUND) and a (GLOBAL) score</p>
           <p>Click <strong>"Roll Dice"</strong> to start the game</p>
-          <p>Each player can Roll the dice as many times as they want</p>   
-          <p>Click <strong>"hold"</strong> to save your round score into the global score, and the turn will end</p>
-          <p>If the dice falls on <strong>1</strong> the score round score will go to 0 and the turn will end</p>
-          <p>First player to reach <strong>50 Points</strong> wins!</p>      
+          <p>Each player can Roll the dice as many times as they want</p>
+          <p>
+            Click <strong>"hold"</strong> to save your round score into the
+            global score, and the turn will end
+          </p>
+          <p>
+            If the dice falls on <strong>1</strong> the score round score will
+            go to 0 and the turn will end
+          </p>
+          <p>First player to reach <strong>50 Points</strong> wins!</p>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-  <script src="app.js"></script>
-</body>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
