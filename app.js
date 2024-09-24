@@ -1,13 +1,38 @@
 const express = require('express')
 const mongoose = require('mongoose');
-
+const Player = require('./models/game.model.js');
 const app = express()
 
+app.use(express.json());
+
 app.get('/', function (req, res) {
-  res.send('Hello Hola')
-})
+  res.send('Hello from Node API Server!');
+});
 
+// Route to fetch all players (for the popup to show latest winners)
+app.get('/api/players', async(req, res) => {
+  try {
+    const players = await Player.find().sort({ date: -1}).limit(5);
+    res.status(200).json({ message: 'Players fetched successfully', data: players });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
 
+// Route to save winner's information
+app.post('/api/winner', async (req, res) => {
+  try {
+    const { name, score } = req.body;
+
+    // Create a new Player instance and save it to the database
+    const player = await Player.create({ name, score });
+    res.status(200).json({ message: 'Winner saved successfully', data: player });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// MongoDB connection and server start
 mongoose.connect("mongodb+srv://Dice:A1b2c3d4e5!@cluster0.6rn7l.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => {
   console.log('Connected!');
