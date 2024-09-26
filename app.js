@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const express = require('express')
 const mongoose = require('mongoose');
 const Player = require('./models/game.model.js');
@@ -32,13 +34,28 @@ app.post('/api/winner', async (req, res) => {
 });
 
 // MongoDB connection and server start
-mongoose.connect("mongodb+srv://Dice:A1b2c3d4e5!@cluster0.6rn7l.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=Cluster0")
-.then(() => {
-  console.log('Connected!');
-  app.listen(3000, () => {
-    console.log('Server is running on port 3000')
-  })
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
-.catch(() => {
-  console.log('Connection failed!');
-});
+.then(() => {
+  console.log('Connected');
+  app.listen(process.env.PORT || 3000, () => {
+    console.log(`Server running on port ${process.env.PORT || 3000}`);
+  });
+})
+.catch((err) => console.error('Connection error:', err));
+
+// Middleware and other app configurations...
+
+
+// mongoose.connect("mongodb+srv://Dice:A1b2c3d4e5!@cluster0.6rn7l.mongodb.net/NodeAPI?retryWrites=true&w=majority&appName=Cluster0")
+// .then(() => {
+//   console.log('Connected!');
+//   app.listen(3000, () => {
+//     console.log('Server is running on port 3000')
+//   })
+// })
+// .catch(() => {
+//   console.log('Connection failed!');
+// });
